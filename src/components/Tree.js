@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import Node from './Node';
-
-
+import FolderComponent from './FolderComponent'; //Passed to Node Component
+import FileComponent from './FileComponent';
+import styles from './Tree.css';
 class Tree extends Component {
 
 
   static propTypes={
-    data: React.PropTypes.object.isRequired
+    data: React.PropTypes.object.isRequired,
+    fileComponent: React.PropTypes.func,
+    folderComponent: React.PropTypes.func,
+  };
+
+
+  static defaultProps = {
+    folderComponent: FolderComponent,
+    fileComponent: FileComponent
   };
 
   constructor(props) {
@@ -14,7 +23,7 @@ class Tree extends Component {
     this.state = {
       data: parse(props.data)
     };
-
+   
   }
 
 
@@ -27,8 +36,20 @@ componentWillReceiveProps(nextProps) {
 
 render(){
     return(
-      <div>
-         <Node />
+       <div>
+        <div className={styles.folderTree}>
+          <Node
+            path={[]}
+            level={0}
+            id={this.state.data.id}
+            key={this.state.data.id}
+            open={this.state.data.open}
+            filename={this.state.data.filename}
+            children={this.state.data.children || []}  //Data is passed to the Node component
+            fileComponent={this.props.fileComponent}
+            folderComponent={this.props.folderComponent}
+          />
+        </div>
       </div>
     )
   }
@@ -36,7 +57,6 @@ render(){
 
 
 //Parse json data recursively
-
 function parse(data){
   if (data.children) {
     for (let i = 0; i < data.children.length; i++)
@@ -44,7 +64,5 @@ function parse(data){
   }
   return data;
 }
-
-
 
 export default Tree;
