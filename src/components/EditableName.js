@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Tree.css'
 
+
+ //THIS component is not being used now.
 class EditableName extends React.Component {
 	static propTypes = {
 	 
@@ -36,4 +38,4 @@ class EditableName extends React.Component {
 }
 
 
-export default EditableName;
+export default EditableName; 
