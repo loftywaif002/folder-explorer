@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import Tree from './components/Tree';
+import FolderComponent from './Components/FolderComponent';
+import FileComponent from './Components/FileComponent';
+import FolderTree from './Components/FolderTree';
+
+import styles from './Components/folderTreeCSS.css';
 
 const testData = {
   "id": 1,
@@ -84,24 +88,21 @@ const testData = {
   ]
 }
 
-
-class App extends Component {
-
- constructor(props) {
-  super(props);
-  this.state = {
-     data: 1,
-     testData: testData
-  };
-}
-
-  render() {
-    return (
-      <div>
-        <Tree data={this.state.testData}/>
-      </div>
-    );
+export default class Sandbox extends Component {
+  state = {
+    data: 1,
+    testData: testData,
   }
-}
 
-export default App;
+	render() {
+		return (
+			<div style={{padding: '50px 20px', width: '50%'}}>
+			  <FolderTree
+			  	data={this.state.testData}
+			    fileComponent={FileComponent}
+			    folderComponent={FolderComponent}
+			  />
+			</div>
+		);
+	}
+}
