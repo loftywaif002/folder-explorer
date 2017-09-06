@@ -1,6 +1,6 @@
 # File/Folder Explorer- Using React.js #
 
-<img src="http://i63.tinypic.com/wc0qr5.png" height="300" width="350">
+<img src="http://i63.tinypic.com/wc0qr5.png" height="600" width="350">
 
 ### Run the Project ###
 
