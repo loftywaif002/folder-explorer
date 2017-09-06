@@ -1,5 +1,6 @@
-# file explorer- Using React.js #
+# File/Folder Explorer- Using React.js #
 
+<img src="http://i63.tinypic.com/wc0qr5.png" height="300" width="350">
 
 ### Run the Project ###
 
